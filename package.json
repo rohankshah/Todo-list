@@ -1,0 +1,17 @@
+{
+  "name": "todo_list",
+  "version": "1.0.0",
+  "description": "Todo app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohan Shah",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^6.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
