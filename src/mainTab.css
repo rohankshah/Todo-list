@@ -6,11 +6,56 @@
     height: 60%;
     width: 80%;
     background-color: white;
+    overflow: scroll;
 }
 
 .mainInputDiv {
     width: 90%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
+}
+
+.mainTask {
+    grid-area: 1 / 1 / 2 / 6;
+}
+
+.mainDate {
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+.mainAdd {
+    grid-area: 2 / 4 / 3 / 6;
+}
+
+.taskDiv {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 100px;
+    grid-row-gap: 2px;
+    background-color: lightgray;
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    padding: 0.5em;
+    height: 20%;
+}
+
+.taskDetails {
+    grid-area: 1 / 1 / 2 / 6;
+}
+
+.taskDate {
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+.taskDelete {
+    grid-area: 2 / 4 / 3 / 6;
+    background-color: red;
 }

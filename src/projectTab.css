@@ -9,5 +9,8 @@
     line-height: 2.5rem;
     padding: 1em 0;
     overflow: scroll;
+    border: 2px;
+    border-style: solid;
+    border-color: #fff;
 }
 
