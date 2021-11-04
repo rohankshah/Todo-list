@@ -1,4 +1,5 @@
 import './pageload.css'
+import { projectTabLoad } from './projectTab';
 
 function pageload() {
 
@@ -10,10 +11,11 @@ function pageload() {
     addFlex(nav);
 
     // Project
-    const project = document.getElementsByClassName("project")[0];
-    createHeading(project, "Project");
-    addFlex(project);
+    projectTabLoad();
+
 }
+
+// Nav tab
 
 function createHeading(ele, str) {
     const heading = document.createElement("h2");
@@ -42,5 +44,11 @@ function addFlex(ele) {
     ele.classList.add("flex");
 }
 
+// Project tab
 
-export default pageload();
+
+export {
+    pageload,
+    addFlex,
+    createHeading
+}
