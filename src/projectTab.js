@@ -1,4 +1,5 @@
 import { addFlex, createHeading } from "./pageload";
+import { mainTabLoad } from "./mainTab";
 import './projectTab.css'
 
 let project_list = [];
@@ -13,6 +14,7 @@ function projectTabLoad() {
     //     defaultProject();
     // }
     loadExistingProject();
+    listenProjectClick();
 }
 
 function loadExistingProject() {
@@ -52,6 +54,7 @@ function defaultProject() {
 }
 
 function projectAdd() {
+    removeListenProjectClick();
     const project = document.getElementsByClassName("project")[0];
     const projectCont = project.children[1];
     const projectInput = project.children[2].children[0];
@@ -69,6 +72,7 @@ function projectAdd() {
     projectName.innerHTML = project_obj.name;
     projectInput.value = '';
     projectCont.appendChild(projectName);
+    listenProjectClick();
 }
 
 function projectAddExisting(existingProjectParse) {
@@ -98,6 +102,28 @@ function createProjectInput(project) {
     projectInputDiv.appendChild(projectInput);
     projectInputDiv.appendChild(projectAdd);
     project.appendChild(projectInputDiv);
+}
+
+// Project click
+
+function listenProjectClick() {
+    if (localStorage.getItem('project_list')) {
+        const projectButtons = document.getElementsByClassName("project")[0].children[1].children;
+        const projectButtonsArr = Array.from(projectButtons);
+        projectButtonsArr.forEach(ele => {
+            ele.addEventListener("click", mainTabLoad);
+        })
+    }
+}
+
+function removeListenProjectClick() {
+    if (localStorage.getItem('project_list')) {
+        const projectButtons = document.getElementsByClassName("project")[0].children[1].children;
+        const projectButtonsArr = Array.from(projectButtons);
+        projectButtonsArr.forEach(ele => {
+            ele.removeEventListener("click", mainTabLoad);
+        })
+    }
 }
 
 export {

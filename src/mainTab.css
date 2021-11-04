@@ -1,0 +1,16 @@
+.mainTab {
+    padding: 2em;
+}
+
+.mainCont {
+    height: 60%;
+    width: 80%;
+    background-color: white;
+}
+
+.mainInputDiv {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

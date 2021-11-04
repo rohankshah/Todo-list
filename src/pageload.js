@@ -1,17 +1,20 @@
 import './pageload.css'
 import { projectTabLoad } from './projectTab';
+import { mainTabLoad } from './mainTab';
 
 function pageload() {
 
-    // Navbar
+    // Navtab
     const nav = document.getElementsByClassName("nav")[0];
     createHeading(nav, "TODO LIST");
     const innerList = createList();
     appendList(innerList);  
     addFlex(nav);
 
-    // Project
+    // ProjectTab
     projectTabLoad();
+
+    // MainTab
 
 }
 
