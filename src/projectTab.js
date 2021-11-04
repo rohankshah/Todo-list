@@ -1,5 +1,6 @@
 import { addFlex, createHeading } from "./pageload";
 import { mainTabLoad } from "./mainTab";
+import { monitorMainAdd } from "./mainTab";
 import './projectTab.css'
 
 let project_list = [];
@@ -63,9 +64,7 @@ function projectAdd() {
         name: projectInput.value,
         list_objs: []
     }
-    console.log(project_list);
     project_list.push(project_obj);
-    console.log(project_list);
     localStorage.setItem('project_list', JSON.stringify(project_list));
 
     const projectName = document.createElement("p");

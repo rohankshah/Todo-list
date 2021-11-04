@@ -1,6 +1,5 @@
 import './pageload.css'
 import { projectTabLoad } from './projectTab';
-import { mainTabLoad } from './mainTab';
 
 function pageload() {
 
