@@ -8,5 +8,6 @@
     justify-content: flex-start;
     line-height: 2.5rem;
     padding: 1em 0;
+    overflow: scroll;
 }
 
