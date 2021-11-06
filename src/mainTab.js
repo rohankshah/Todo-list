@@ -78,11 +78,18 @@ function pushTask() {
 }
 
 function showTask() {
+    const taskHeading = document.getElementsByClassName("main")[0].children[0].innerHTML;
     const mainInputDiv = document.getElementsByClassName("main")[0].children[1];
     mainInputDiv.innerHTML = '';
     const unparsed = localStorage.getItem('project_list');
-    const parsed = JSON.parse(unparsed)[index];
-    const parsedList = parsed.list_objs;
+    const parsed = JSON.parse(unparsed);
+    for (let i = 0; i < parsed.length; i++) {
+        if (parsed[i].name == taskHeading.split(" Task List")[0]) {
+            index = i;
+            break;
+        }
+    }
+    const parsedList = parsed[index].list_objs;
     for (let i = 0; i < parsedList.length; i++) {
         let taskDiv = document.createElement("div");
         taskDiv.classList.add("taskDiv");
@@ -123,19 +130,11 @@ function taskDelete(ev) {
     let currentProject = parsedProjectList[index];
     let currentProjectList = currentProject.list_objs;
 
-    // let unparsed = localStorage.getItem('project_list');
-    // let parsed = JSON.parse(unparsed)[index];
-    // let parsedList = parsed.list_objs;
-    // for (let i = 0; i < parsedList.length; i++) {
-    //     if(parsedList[i].task === taskDetail) {
-
-    //     }
-    // }
-
     const filteredList = currentProjectList.filter(function(el) { return el.task != taskDetail; }); 
-    let a = JSON.parse(projectList)
-    a[index].list_objs = filteredList;
-    let newProjectList = JSON.stringify(a);
+    list = filteredList;
+    let tempProjectList = parsedProjectList;
+    tempProjectList[index].list_objs = filteredList;
+    let newProjectList = JSON.stringify(tempProjectList);
     localStorage.setItem('project_list', newProjectList);
     showTask();
 }

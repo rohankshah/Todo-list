@@ -16,5 +16,8 @@ module.exports = {
         ]
       }
     ]
+  },
+  externals: {
+    lodash: 'lodash',
   }
 };
